@@ -31,10 +31,8 @@
               "projects/upbytes-angular-calendar/src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               "projects/upbytes-angular-calendar/src/styles.scss",
-              "./node_modules/@upbytes.in/angular-material-calendar/theme/prebuilt/purple-green.theme.css"
-            ],
+              ],
             "scripts": []
           },
           "configurations": {
