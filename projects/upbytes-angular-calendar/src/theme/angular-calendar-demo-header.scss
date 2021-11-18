@@ -1,0 +1,31 @@
+@import "@angular/material/theming";
+
+@mixin calendar-demo-header-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+
+    calendar-demo-header {
+        color: mat.get-color-from-palette($primary, default-contrast);
+
+        .calendar-demo-toolbar,
+        .calendar-demo-header-toolbar {
+            background: mat.get-color-from-palette($primary);
+
+            & a:hover,
+            & a:focus {
+                background: rgba(0, 0, 0, 0.4);
+            }
+
+            .docs-navbar-header-item-selected {
+                background: rgba(0, 0, 0, 0.2);
+            }
+        }
+        .calendar-demo-header-title {
+            padding-right: 3em;
+        }
+
+        .calendar-demo-header-app-button {
+            font-size: 16px;
+        }
+    }
+}

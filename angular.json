@@ -31,9 +31,8 @@
               "projects/upbytes-angular-calendar/src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               "projects/upbytes-angular-calendar/src/styles.scss",
-              "./node_modules/@upbytes.in/angular-material-calendar/theme/prebuilt/deeppurple-amber.theme.css"
+              "./node_modules/@upbytes.in/angular-material-calendar/theme/prebuilt/indigo-pink.theme.css"
             ],
             "scripts": []
           },
@@ -42,8 +41,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -101,8 +100,111 @@
               "projects/upbytes-angular-calendar/src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
-              "projects/upbytes-angular-calendar/src/styles.scss"
+              "projects/upbytes-angular-calendar/src/styles.scss",
+              "./node_modules/@upbytes.in/angular-material-calendar/theme/prebuilt/indigo-pink.theme.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "upbytes-calendar-guide": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/upbytes-calendar-guide",
+      "sourceRoot": "projects/upbytes-calendar-guide/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/upbytes-calendar-guide",
+            "index": "projects/upbytes-calendar-guide/src/index.html",
+            "main": "projects/upbytes-calendar-guide/src/main.ts",
+            "polyfills": "projects/upbytes-calendar-guide/src/polyfills.ts",
+            "tsConfig": "projects/upbytes-calendar-guide/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/upbytes-calendar-guide/src/favicon.ico",
+              "projects/upbytes-calendar-guide/src/assets"
+            ],
+            "styles": [
+              "projects/upbytes-calendar-guide/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/upbytes-calendar-guide/src/environments/environment.ts",
+                  "with": "projects/upbytes-calendar-guide/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "upbytes-calendar-guide:build:production"
+            },
+            "development": {
+              "browserTarget": "upbytes-calendar-guide:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "upbytes-calendar-guide:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/upbytes-calendar-guide/src/test.ts",
+            "polyfills": "projects/upbytes-calendar-guide/src/polyfills.ts",
+            "tsConfig": "projects/upbytes-calendar-guide/tsconfig.spec.json",
+            "karmaConfig": "projects/upbytes-calendar-guide/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/upbytes-calendar-guide/src/favicon.ico",
+              "projects/upbytes-calendar-guide/src/assets"
+            ],
+            "styles": [
+              "projects/upbytes-calendar-guide/src/styles.scss"
             ],
             "scripts": []
           }
