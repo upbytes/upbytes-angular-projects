@@ -1,18 +1,22 @@
-<mat-toolbar color="primary" class="calendar-header">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+<mat-toolbar color="primary" class="calendar-demo-header-toolbar">
+    <button mat-icon-button  aria-label="Example icon-button with menu icon">
         <mat-icon class="material-icons-round">event</mat-icon>
         <!-- <mat-icon class="material-icons-round" svgIcon="upbytes-calendar-icon"></mat-icon> -->
     </button>
 
-    <span>Upbytes Calendar</span>
+    <span class="calendar-demo-header-title">Upbytes Calendar</span>
+    <a class="calendar-demo-header-app-button" mat-button href="https://www.google.com/" target="_blank">Guide</a>
+    <a class="calendar-demo-header-app-button" mat-button href="https://www.google.com/" target="_blank">Demo</a>
+
     <span class="example-spacer"></span>
     <button mat-icon-button class="example-icon favorite-icon" [matMenuTriggerFor]="theme_menu"
         aria-label="Example icon-button with heart icon">
         <mat-icon class="material-icons-round"> format_color_fill</mat-icon>
     </button>
-    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>share</mat-icon>
-    </button> -->
+    <a mat-icon-button class="example-icon" target="_blank" 
+    aria-label="Edit in Stackblitz" href="https://stackblitz.com/edit/angular-webcontainer-template-kra5mn">
+        <mat-icon>open_in_new</mat-icon>
+    </a>
     <a mat-icon-button target="_blank" href="https://github.com/vaibhav-upbytes/angular-material-calendar">
         <fa-icon class="calendar-demo-header-icon" [icon]="['fab', 'github']"></fa-icon>
     </a>
