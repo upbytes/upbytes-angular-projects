@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AngularMaterialCalendarModule } from '@upbytes.in/angular-material-calendar';
 import { FontAwesomeModule, FaIconLibrary, FaConfig} from '@fortawesome/angular-fontawesome';
@@ -31,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     AngularMaterialCalendarModule,
     BrowserAnimationsModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })
