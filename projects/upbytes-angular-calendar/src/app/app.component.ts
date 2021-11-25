@@ -1,10 +1,12 @@
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 // import { AngularMaterialCalendarComponent } from 'angular-material-calendar';
-import { BehaviorSubject,  debounceTime, map,  Subject } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { BehaviorSubject, debounceTime, map, Observable, Subject } from 'rxjs';
 import { CalendarDataSource } from './data/calendar-data-source';
 // import { AngularMaterialCalendarComponent } from 'angular-material-calendar';
 import { Event } from './model/calendar-event';
+import { UpbytesAngularAppView } from './model/upbytes-angular-view';
 import { CalendarDemoDataService } from './service/calendar-demo-data.service';
 
 @Component({
@@ -20,10 +22,16 @@ export class AppComponent implements OnInit {
   events?: Subject<Event[]> = new Subject<Event[]>();
   display: Event[] = [];
   dataSource = new CalendarDataSource(this.display);
+  _view$?: Observable<UpbytesAngularAppView>;
+  _view?: UpbytesAngularAppView;
   //events?: Event[] = [];
 
-  constructor(private calendarDemoDataService: CalendarDemoDataService) {
-  this.calendarDemoDataService.getEventsData().pipe(
+  constructor(
+    private calendarDemoDataService: CalendarDemoDataService,
+    private store: Store<{ _view: UpbytesAngularAppView }>) {
+    this._view$ = store.select('_view');
+    this._view$!.subscribe((v) => this._view = v);
+    this.calendarDemoDataService.getEventsData().pipe(
       map((d: any) => {
         this.display = d.data;
         this.dataSource.setData(this.display);
@@ -45,7 +53,7 @@ export class AppComponent implements OnInit {
     const updated = this.data!.pipe(debounceTime(0));
 
     updated.subscribe(s => {
-      this.display = s! && s.start! ?   [...this.display , s] : this.display;
+      this.display = s! && s.start! ? [...this.display, s] : this.display;
       //this.events?.next(this.display)
       this.dataSource.setData(this.display);
     });

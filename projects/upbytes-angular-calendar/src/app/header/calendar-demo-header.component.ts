@@ -1,9 +1,12 @@
 import { Component, Renderer2 } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Store } from '@ngrx/store';
 import { THEMES } from '../data/calendar-theme-data';
 import { CalendarTheme } from '../model/calendar-theme';
 import { MatIconRegistry } from '@angular/material/icon';
-
+import { UpbytesAngularAppView } from '../model/upbytes-angular-view';
+import { Observable } from 'rxjs';
+import { guide, demo } from '../actions/app-view.action'
 @Component({
     selector: 'calendar-demo-header',
     templateUrl: './calendar-demo-header.component.html',
@@ -11,15 +14,17 @@ import { MatIconRegistry } from '@angular/material/icon';
 })
 export class CalendarDemoHeader {
     themes: CalendarTheme[] = THEMES;
-
+    _view$?: Observable<UpbytesAngularAppView>;
+    _view?: UpbytesAngularAppView;
     constructor(
         private _renderer: Renderer2,
         private matIconRegistry: MatIconRegistry,
-        private domSanitizer: DomSanitizer) {
+        private domSanitizer: DomSanitizer,
+        private store: Store<{ _view: UpbytesAngularAppView }>) {
         this.matIconRegistry.addSvgIcon(
             `upbytes-calendar-icon`,
             this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/upbytes-calendar-icon.svg')
-          );
+        );
     }
 
     changeTheme(option: CalendarTheme) {
@@ -33,4 +38,11 @@ export class CalendarDemoHeader {
         this.themes.forEach(o => this._renderer.removeClass(document.body, o.class!));
     }
 
+    guide() {
+        this.store.dispatch(guide());
+    }
+
+    demo() {
+        this.store.dispatch(demo());
+    }
 }
