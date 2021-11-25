@@ -2,9 +2,13 @@
     <calendar-demo-header class="calendar-header-demo"></calendar-demo-header>
     <div class="calendar-demo-main">
         <calendar-demo-sidenav class="calendar-demo-side" [data]="data"></calendar-demo-sidenav>
-        <upbytes-angular-material-calendar [dataSource]="dataSource" class="calendar-demo-calendar">
-        </upbytes-angular-material-calendar>
-        <upbytes-calendar-guide></upbytes-calendar-guide>
+        <div class="calendar-demo-calendar">
+            <upbytes-angular-material-calendar *ngIf="_view!.view === 'demo'" [dataSource]="dataSource"
+                class="calendar-demo-calendar">
+            </upbytes-angular-material-calendar>
+            <upbytes-calendar-guide *ngIf="_view!.view === 'guide'" class="calendar-demo-calendar">
+            </upbytes-calendar-guide>
+        </div>
         <div>This panel should be used for ads</div>
     </div>
 </div>
