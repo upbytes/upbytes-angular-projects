@@ -1,0 +1,72 @@
+<div
+    style="color:#4a97e8;background-color:#282a36;font-family:'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback';font-weight:normal;font-size:14px;line-height:19px">
+    <span><span style="color:#e37b40">import</span><span>&nbsp;{ Component, ViewEncapsulation } </span><span
+            style="color:#e37b40">from</span><span>&nbsp;</span><span style="color:#f0be37">'</span><span
+            style="color:#f0ca4d">@angular/core</span><span style="color:#f0be37">'</span><span>;</span></span>
+    <div><span style="color:#e37b40">import</span><span>&nbsp;{ DomSanitizer, SafeHtml } </span><span
+            style="color:#e37b40">from</span><span>&nbsp;</span><span style="color:#f0be37">'</span><span
+            style="color:#f0ca4d">@angular/platform-browser</span><span style="color:#f0be37">'</span><span>;</span>
+    </div>
+    <div><span style="color:#e37b40">import</span><span>&nbsp;{ DocumentViewerService } </span><span
+            style="color:#e37b40">from</span><span>&nbsp;</span><span style="color:#f0be37">'</span><span
+            style="color:#f0ca4d">../services/document-viewer.service</span><span
+            style="color:#f0be37">'</span><span>;</span></div><br><br>
+    <div><span>@</span><span style="color:#46b29d">Component</span><span style="color:#ffffff">(</span><span>{</span>
+    </div>
+    <div><span>&nbsp; selector</span><span style="color:#e37b40">:</span><span>&nbsp;</span><span
+            style="color:#f0be37">'</span><span style="color:#f0ca4d">upbytes-doc-viewer</span><span
+            style="color:#f0be37">'</span><span>,</span></div>
+    <div><span>&nbsp; templateUrl</span><span style="color:#e37b40">:</span><span>&nbsp;</span><span
+            style="color:#f0be37">'</span><span style="color:#f0ca4d">./doc-viewer.component.html</span><span
+            style="color:#f0be37">'</span><span>,</span></div>
+    <div><span>&nbsp; styles</span><span style="color:#e37b40">:</span><span>&nbsp;[</span><span
+            style="color:#f0ca4d">`</span></div>
+    <div><span style="color:#f0ca4d">&nbsp; .doc-viewer-container {</span></div>
+    <div><span style="color:#f0ca4d">&nbsp; &nbsp; margin: 50px;</span></div>
+    <div><span style="color:#f0ca4d">&nbsp; }</span></div>
+    <div><span style="color:#f0ca4d">&nbsp; .doc-code-container {</span></div>
+    <div><span style="color:#f0ca4d">&nbsp; &nbsp; border: .5px solid rgba(0,0,0,.2);</span></div>
+    <div><span style="color:#f0ca4d">&nbsp; &nbsp; background: #282a36;</span></div>
+    <div><span style="color:#f0ca4d">&nbsp; &nbsp; color: #fff</span></div>
+    <div><span style="color:#f0ca4d">&nbsp; }</span></div>
+    <div><span style="color:#f0ca4d">&nbsp; `</span><span>],</span></div>
+    <div><span>&nbsp; encapsulation</span><span style="color:#e37b40">:</span><span>&nbsp;</span><span
+            style="color:#46b29d">ViewEncapsulation</span><span>.</span><span
+            style="color:#46b29d;font-style:italic">None</span><span>,</span></div>
+    <div><span>}</span><span style="color:#ffffff">)</span></div>
+    <div><span style="color:#e37b40">export</span><span>&nbsp;</span><span
+            style="color:#e37b40">class</span><span>&nbsp;</span><span
+            style="color:#00ffff">DocViwerComponent</span><span>&nbsp;{</span></div>
+    <div><span>&nbsp; title </span><span style="color:#e37b40">=</span><span>&nbsp;</span><span
+            style="color:#f0be37">'</span><span style="color:#f0ca4d">upbytes-calendar-guide</span><span
+            style="color:#f0be37">'</span><span>;</span></div>
+    <div><span>&nbsp; docHtml</span><span style="color:#e37b40">:</span><span>&nbsp;</span><span
+            style="color:#00ffff;font-style:italic">SafeHtml</span><span>&nbsp;</span><span
+            style="color:#e37b40">|</span><span>&nbsp;</span><span
+            style="color:#00ffff;font-style:italic">undefined</span><span>;</span></div>
+    <div><span>&nbsp; </span><span style="color:#e37b40">constructor</span><span>(</span></div>
+    <div><span>&nbsp; &nbsp; </span><span style="color:#e37b40">private</span><span>&nbsp;</span><span
+            style="color:#ffb86c;font-style:italic">_domSanitizer</span><span
+            style="color:#e37b40">:</span><span>&nbsp;</span><span
+            style="color:#00ffff;font-style:italic">DomSanitizer</span><span>,</span></div>
+    <div><span>&nbsp; &nbsp; </span><span style="color:#e37b40">private</span><span>&nbsp;</span><span
+            style="color:#ffb86c;font-style:italic">documentViewerService</span><span
+            style="color:#e37b40">:</span><span>&nbsp;</span><span
+            style="color:#00ffff;font-style:italic">DocumentViewerService</span><span>) {</span></div>
+    <div><span>&nbsp; &nbsp; &nbsp; </span><span style="color:#00ffff;font-style:italic">this</span><span
+            style="color:#ffffff">.</span><span>documentViewerService</span><span style="color:#ffffff">.</span><span
+            style="color:#46b29d">getGuideData</span><span style="color:#ffffff">().</span><span
+            style="color:#46b29d">subscribe</span><span style="color:#ffffff">(</span><span>(</span><span
+            style="color:#ffb86c;font-style:italic">doc</span><span>) </span><span
+            style="color:#e37b40">=&gt;</span><span>&nbsp;{</span></div>
+    <div><span>&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+            style="color:#00ffff;font-style:italic">this</span><span>.docHtml </span><span
+            style="color:#e37b40">=</span><span>&nbsp;</span><span
+            style="color:#00ffff;font-style:italic">this</span><span
+            style="color:#ffffff">.</span><span>_domSanitizer</span><span style="color:#ffffff">.</span><span
+            style="color:#46b29d">bypassSecurityTrustHtml</span><span
+            style="color:#ffffff">(</span><span>doc</span><span style="color:#ffffff">)</span><span>;</span></div>
+    <div><span>&nbsp; &nbsp; &nbsp; }</span><span style="color:#ffffff">)</span><span>;</span></div>
+    <div><span>&nbsp; }</span></div>
+    <div><span>}</span></div>
+</div>

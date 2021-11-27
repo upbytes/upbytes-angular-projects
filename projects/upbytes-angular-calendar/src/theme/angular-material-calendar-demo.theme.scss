@@ -1,6 +1,8 @@
 @import "./angular-calendar-demo-sidenav.scss";
 @import "./angular-calendar-demo-header.scss";
+@import "./angular-calendar-demo.scss";
 @mixin angular-material-calendar-demo($angular-material-calendar-demo) {
   @include calendar-demo-sidenav-theme($angular-material-calendar-demo);
   @include calendar-demo-header-theme($angular-material-calendar-demo);
+  @include calendar-demo-theme($angular-material-calendar-demo);
 }
