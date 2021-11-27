@@ -24,6 +24,7 @@ export class AppComponent implements OnInit {
   dataSource = new CalendarDataSource(this.display);
   _view$?: Observable<UpbytesAngularAppView>;
   _view?: UpbytesAngularAppView;
+  pageTitle?: string = "install"
   //events?: Event[] = [];
 
   constructor(
