@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { DocumentViewerService } from '../services/document-viewer.service';
 
@@ -51,14 +51,21 @@ import { DocumentViewerService } from '../services/document-viewer.service';
   `],
   encapsulation: ViewEncapsulation.None,
 })
-export class DocViwerComponent {
+export class DocViwerComponent implements OnChanges {
+  @Input() pageTitle?: string;
   title = 'upbytes-calendar-guide';
   docHtml: SafeHtml | undefined;
   constructor(
     private _domSanitizer: DomSanitizer,
     private documentViewerService: DocumentViewerService) {
-    this.documentViewerService.getGuideData().subscribe((doc) => {
-      this.docHtml = this._domSanitizer.bypassSecurityTrustHtml(doc);
-    });
+    
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (!!this.pageTitle) {
+      this.documentViewerService.getGuideData(this.pageTitle).subscribe((doc) => {
+        this.docHtml = this._domSanitizer.bypassSecurityTrustHtml(doc);
+      });  
+    }
+    
   }
 }
