@@ -1,0 +1,33 @@
+@import "@angular/material/theming";
+
+@mixin calendar-demo-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+
+    .calendar-demo-content {
+        display: flex;
+        flex: 1;
+        overflow-y: auto;
+        height: 38em;
+    }
+
+    .calendar-demo-content::-webkit-scrollbar {
+        width: 4px;
+        scrollbar-color: mat-color($primary);
+    }
+    .calendar-demo-content::-webkit-scrollbar-track {
+        box-shadow: 1em;
+        border-radius: 10px;
+    }
+    .calendar-demo-content::-webkit-scrollbar-thumb {
+        background-color: mat-color($primary);
+        border-radius: 10px;
+        box-shadow: 1em;
+    }
+
+    .calendar-demo-content::-webkit-scrollbar-thumb:hover {
+        background-color: mat-color($primary);
+        border-radius: 10px;
+        box-shadow: 1em;
+    }
+}

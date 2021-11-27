@@ -6,8 +6,11 @@
             <upbytes-angular-material-calendar *ngIf="_view!.view === 'demo'" [dataSource]="dataSource"
                 class="calendar-demo-calendar">
             </upbytes-angular-material-calendar>
-            <upbytes-calendar-guide *ngIf="_view!.view === 'guide'" class="calendar-demo-calendar">
+
+            <upbytes-calendar-guide *ngIf="_view!.view === 'guide'"
+                class="calendar-demo-calendar calendar-demo-content">
             </upbytes-calendar-guide>
+
         </div>
         <div>This panel should be used for ads</div>
     </div>
