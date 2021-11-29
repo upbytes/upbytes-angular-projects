@@ -1,4 +1,4 @@
-import { Injector, NgModule } from '@angular/core';
+import { ApplicationRef, Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { createCustomElement } from '@angular/elements';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,8 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: []
 })
 export class AppModule {
 
@@ -26,6 +25,10 @@ export class AppModule {
     customElements.define('upbytes-calendar-guide', el);
   }
 
-  ngDoBootstrap() {}
+  public ngDoBootstrap(appRef: ApplicationRef): void {
+    if (document.querySelector('app-root')) {
+      appRef.bootstrap(AppComponent);
+    }
+  }
 
 }
