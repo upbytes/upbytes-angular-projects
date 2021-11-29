@@ -22,15 +22,11 @@ export class AppComponent implements OnInit {
   events?: Subject<Event[]> = new Subject<Event[]>();
   display: Event[] = [];
   dataSource = new CalendarDataSource(this.display);
-  _view$?: Observable<UpbytesAngularAppView>;
-  _view?: UpbytesAngularAppView;
   //events?: Event[] = [];
 
   constructor(
     private calendarDemoDataService: CalendarDemoDataService,
     private store: Store<{ _view: UpbytesAngularAppView }>) {
-    this._view$ = store.select('_view');
-    this._view$!.subscribe((v) => this._view = v);
     this.calendarDemoDataService.getEventsData().pipe(
       map((d: any) => {
         this.display = d.data;

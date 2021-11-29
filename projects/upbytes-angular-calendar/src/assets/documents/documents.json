@@ -2,5 +2,10 @@
     {
         "title": "install",
         "documentUrl": "assets/pages/getting-started.html"
+    },
+
+    {
+        "title": "datasource",
+        "documentUrl": "assets/pages/datasource.html"
     }
 ]

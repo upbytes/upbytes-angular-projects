@@ -1,8 +1,23 @@
 <mat-drawer-container class="calendar-demo-sidenav-container" autosize>
     <mat-drawer #sidenav class="calendar-demo-sidenav-content" mode="side">
-        <mat-nav-list>
-            <mat-list-item>
+        <mat-nav-list *ngIf="_view!.view ===  'demo'">
+            <mat-list-item *ngIf="_view!.view ===  'demo'">
                 <button mat-button color="primary" (click)="openDialog()">Add Events</button>
+            </mat-list-item>
+        </mat-nav-list>
+        <mat-nav-list *ngIf="_view!.view ===  'guide'">
+            <mat-list-item>
+                <button mat-button color="primary" routerLink="/guide" [queryParams]="{ title: 'install' }"
+                    routerLinkActive="calendar-demo-header-app-button-active">
+                    Getting Started
+                </button>
+            </mat-list-item>
+
+            <mat-list-item>
+                <button mat-button color="primary" routerLink="/guide" [queryParams]="{ title: 'datasource' }"
+                    routerLinkActive="calendar-demo-header-app-button-active">
+                    Data Source
+                </button>
             </mat-list-item>
         </mat-nav-list>
 
