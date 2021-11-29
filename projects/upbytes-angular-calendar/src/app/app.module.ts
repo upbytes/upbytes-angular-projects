@@ -15,6 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UpbytesAngularAppView } from './model/upbytes-angular-view';
 import { UpbytesAngularViewReducerService } from './reducer/upbytes-angular-view-reducer.service';
+import { CalendarGuide } from './calendar-guide/calendar-guide.component';
+import { CalendarDemo } from './calendar-demo/calendar-demo.component';
 
 export const UPBYTES_ANGULR_REDUCER_TOKEN = new InjectionToken<ActionReducerMap<UpbytesAngularAppView>>
   ('Registered APP Reducers', {
@@ -32,7 +34,9 @@ export const UPBYTES_ANGULR_REDUCER_TOKEN = new InjectionToken<ActionReducerMap<
     AppComponent,
     CalendarDemoHeader,
     CalendarDemoSideNav,
-    CalendarDemoEvents
+    CalendarDemoEvents,
+    CalendarGuide,
+    CalendarDemo
   ],
   imports: [
     BrowserModule,
