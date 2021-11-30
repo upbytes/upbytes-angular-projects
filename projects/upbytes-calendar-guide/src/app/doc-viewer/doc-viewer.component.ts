@@ -47,7 +47,100 @@ import { DocumentViewerService } from '../services/document-viewer.service';
   .doc-hljs-fn-paranthesis {
     color:#ffffff;
   }
-  
+  .mobile-grid-container {
+    display: grid;
+    grid-template-areas:
+    'day-header week-header month-header'
+    'day week month'
+    'day week month'
+    'day week month'
+    'day week month'
+    'day week month'
+    'day week month';
+    
+    grid-gap: 1px;
+    background-color: #2196F3;
+    padding: 2px;
+    max-width: 100%;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-areas:
+    'month-header month-header'
+    'month month'
+    'month month'
+    'month month'
+    'month month'
+    'month month'
+    'month month'
+    'day-header day-header'
+    'day day'
+    'day day'
+    'day day'
+    'day day'
+    'day day'
+    'day day'
+    'week-header week-header'
+    'week week'
+    'week week'
+    'week week'
+    'week week'
+    'week week'
+    'week week';
+    
+    grid-gap: 1px;
+    background-color: #2196F3;
+    padding: 2px;
+    max-width: 100%;
+  }
+
+  .calendar-images-day {
+    grid-area: day;
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 50px;
+  }
+
+  .calendar-images-week {
+    grid-area: week;
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 50px;
+  }
+
+  .calendar-images-month {
+    grid-area: month;
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 50px;
+  }
+  .calendar-images-day-header {
+    grid-area: day-header;
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 15px;
+  }
+
+  .calendar-images-week-header{
+    grid-area: week-header;
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 15px;
+  }
+
+  .calendar-images-month-header {
+    grid-area: month-header;
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 15px;
+  }
+
   `],
   encapsulation: ViewEncapsulation.None,
 })
@@ -58,14 +151,14 @@ export class DocViwerComponent implements OnChanges {
   constructor(
     private _domSanitizer: DomSanitizer,
     private documentViewerService: DocumentViewerService) {
-    
+
   }
   ngOnChanges(changes: SimpleChanges): void {
     if (!!this.pageTitle) {
       this.documentViewerService.getGuideData(this.pageTitle).subscribe((doc) => {
         this.docHtml = this._domSanitizer.bypassSecurityTrustHtml(doc);
-      });  
+      });
     }
-    
+
   }
 }
