@@ -1,9 +1,12 @@
 [
     {
+        "title": "introduction",
+        "documentUrl": "assets/pages/introduction.html"
+    },
+    {
         "title": "install",
         "documentUrl": "assets/pages/getting-started.html"
     },
-
     {
         "title": "datasource",
         "documentUrl": "assets/pages/datasource.html"

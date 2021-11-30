@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent  {
   title = 'upbytes-calendar-guide';
-  @Input() pageTitle?: string = "install";
+  @Input() pageTitle?: string = "introduction";
 }
