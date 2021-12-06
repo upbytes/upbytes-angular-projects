@@ -1,10 +1,11 @@
 <div class="mat-body calendar-demo">
     <calendar-demo-header class="calendar-header-demo"></calendar-demo-header>
     <div class="calendar-demo-main">
-        <calendar-demo-sidenav class="calendar-demo-side" [data]="data"></calendar-demo-sidenav>
-        <div class="calendar-demo-calendar">
+        <calendar-demo-sidenav
+        class="calendar-demo-side" [data]="data"></calendar-demo-sidenav>
+        <div class="calendar_main_guide">
             <router-outlet></router-outlet>
         </div>
-        <div>This panel should be used for ads</div>
+        <div class="calendar_main_ads">This panel should be used for ads</div>
     </div>
 </div>
