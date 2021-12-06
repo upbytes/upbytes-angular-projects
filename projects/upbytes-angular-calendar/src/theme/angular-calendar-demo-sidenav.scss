@@ -11,10 +11,32 @@
     }
 
     .calendar-demo-side .mat-drawer-container {
-        background-color: mat-color($primary) !important;
+        background: rgba(mat.get-color-from-palette($primary, default), 0.15) !important;
     }
 
     .calendar-demo-sidenav-content {
         width: 200px;
+    }
+    .calendar-demo-sidenav-link {
+        font-size: 16px;
+        font-weight: 300;
+    }
+
+    .calendar-demo-sidenav-link-active {
+        background: rgba(mat.get-color-from-palette($primary, default), 0.15);
+    }
+    .calendar-demo-sidenav-link-active:hover {
+        background: rgba(mat.get-color-from-palette($primary, default), 0.3);
+    }
+
+    a {
+
+        &.calendar-demo-sidenav-link-active {
+            background: rgba(mat.get-color-from-palette($primary, default), 0.15) !important;
+        }
+
+        &.calendar-demo-sidenav-link-active:hover {
+            background: rgba(mat.get-color-from-palette($primary, default), 0.3) !important;
+        }
     }
 }

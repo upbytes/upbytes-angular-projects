@@ -10,15 +10,17 @@
 
 .calendar-demo-main {
     display: flex;
-    flex: 1 1 0px;
+    flex: 1;
     flex-flow: row;
     justify-items: center;
 }
 
-.calendar-demo-calendar {
-    flex: 1;
+.calendar_main_guide {
+    min-width: 0;
+    min-height: 0;
 }
 
-// .calendar-demo-side {
-//     flex: 0.5;
-// }
+.calendar_main_ads {
+    min-width: 0;
+    min-height: 0;
+}

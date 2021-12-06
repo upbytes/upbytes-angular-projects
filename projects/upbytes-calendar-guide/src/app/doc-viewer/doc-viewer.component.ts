@@ -10,14 +10,18 @@ import { DocumentViewerService } from '../services/document-viewer.service';
   .doc-viewer-container {
     margin: 50px;
   }
+
   .doc-code-container {
     border-radius: 4px;
     border: 1px solid rgba(0,0,0,.2);
-    background-color: #282a36;
     color: #4a97e8;
     font-family: 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback';font-weight:normal;
     font-size: 14px;
     line-height: 19px;
+    overflow: auto;
+    padding: 0;
+    margin: 0;
+    background: none;
   }
   .doc-hljs-keyword {
     color: #e37b40;

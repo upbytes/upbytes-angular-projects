@@ -1,30 +1,26 @@
 <mat-drawer-container class="calendar-demo-sidenav-container" autosize>
     <mat-drawer #sidenav class="calendar-demo-sidenav-content" mode="side">
         <mat-nav-list *ngIf="_view!.view ===  'demo'">
-            <mat-list-item *ngIf="_view!.view ===  'demo'">
-                <button mat-button color="primary" (click)="openDialog()">Add Events</button>
-            </mat-list-item>
+            <a mat-list-item *ngIf="_view!.view ===  'demo'" class="calendar-demo-sidenav-link"
+                (click)="openDialog()">Add Events</a>
         </mat-nav-list>
         <mat-nav-list *ngIf="_view!.view ===  'guide'">
-            <mat-list-item>
-                <button mat-button color="primary" routerLink="/guide" [queryParams]="{ title: 'introduction' }"
-                    routerLinkActive="calendar-demo-header-app-button-active">
-                    Introduction
-                </button>
-            </mat-list-item>
-            <mat-list-item>
-                <button mat-button color="primary" routerLink="/guide" [queryParams]="{ title: 'install' }"
-                    routerLinkActive="calendar-demo-header-app-button-active">
-                    Getting Started
-                </button>
-            </mat-list-item>
+            <a mat-list-item class="calendar-demo-sidenav-link" routerLink="/guide"
+                [queryParams]="{ title: 'introduction' }" routerLinkActive="calendar-demo-sidenav-link-active"
+                [routerLinkActiveOptions]="{ exact: true }">
+                Introduction
+            </a>
+            <a mat-list-item class="calendar-demo-sidenav-link" routerLink="/guide" [queryParams]="{ title: 'install' }"
+                routerLinkActive="calendar-demo-sidenav-link-active" [routerLinkActiveOptions]="{ exact: true }">
+                Getting Started
+            </a>
+            <a mat-list-item class="calendar-demo-sidenav-link" routerLink="/guide"
+                [queryParams]="{ title: 'datasource' }" 
+                routerLinkActive="calendar-demo-sidenav-link-active"
+                [routerLinkActiveOptions]="{ exact: true }">
+                Data Source
+            </a>
 
-            <mat-list-item>
-                <button mat-button color="primary" routerLink="/guide" [queryParams]="{ title: 'datasource' }"
-                    routerLinkActive="calendar-demo-header-app-button-active">
-                    Data Source
-                </button>
-            </mat-list-item>
         </mat-nav-list>
 
     </mat-drawer>
@@ -32,7 +28,5 @@
     <button mat-icon-button class="example-icon" (click)="sidenav.toggle()"
         aria-label="Example icon-button with menu icon">
         <mat-icon class="material-icons-round">menu</mat-icon>
-    </button>
-
-
+    </button> 
 </mat-drawer-container>
