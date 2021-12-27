@@ -1,1 +1,239 @@
-Datashouce
+<h1>Input DataSource</h1>
+<p>
+    Angular Material Calendar library is using data source same as Mat Table. This is helpful to provide
+    input data using array, observable or Datasource.
+</p>
+<h3>Event</h3>
+<p>All example given below are using event object. An Event object should contain the below fields.</p>
+<pre class="doc-code-container">
+    <code>
+        <span class="doc-hljs-keyword">export interface</span> <span calss="doc-hljs-class-name">Event</span> 
+        {
+            start<span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">number</span> <span class="doc-hljs-keyword">|</span> <span class="doc-hljs-class-name">string</span> <span class="doc-hljs-keyword">|</span> <span class="doc-hljs-class-name">Moment</span> <span class="doc-hljs-keyword">|</span> <span class="doc-hljs-class-name">DateTime</span> <span class="doc-hljs-keyword">|</span> <span class="doc-hljs-class-name">Date</span>,
+            end<span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">number</span> <span class="doc-hljs-keyword">|</span> <span class="doc-hljs-class-name">string</span> <span class="doc-hljs-keyword">|</span> <span class="doc-hljs-class-name">Moment</span> <span class="doc-hljs-keyword">|</span> <span class="doc-hljs-class-name">DateTime</span> <span class="doc-hljs-keyword">|</span> <span class="doc-hljs-class-name">Date</span>,
+            color<span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">string</span>,
+            title<span class="doc-hljs-keyword">?:</span> <span class="doc-hljs-class-name">string</span>,
+            description<span class="doc-hljs-keyword">?:</span> <span class="doc-hljs-class-name">string</span>
+        }
+    </code>
+</pre>
+<h3>Using Array As Input Data</h3>
+<p>
+    Providing array as input is simplest way to initialize calendar with events.
+</p>
+<p>Add below code in your html file </p>
+<pre class="doc-code-container">
+    <code> 
+        &lt;<span class="doc-hljs-keyword">upbytes-angular-material-calendar</span> <span class="doc-hljs-import-class">[dataSource]</span><span class="doc-hljs-keyword">=</span><span class="doc-hljs-string">'events'</span>&gt;
+        &lt;/<span class="doc-hljs-keyword">upbytes-angular-material-calendar</span>&gt
+    </code>
+</pre>
+<br />
+<p>Add below code in your component file to initialize data in calendar</p>
+<pre class="doc-code-container">
+    <code> 
+        <span class="doc-hljs-keyword">export class</span><span class="doc-hljs-class-name"> AppComponent</span> {
+            events<span class="doc-hljs-keyword"> = </span> [
+            {   
+                <span class="doc-hljs-string">"start"</span><span class="doc-hljs-keyword">:</span><span class="doc-hljs-class-name"> 1634621592000</span>,
+                <span class="doc-hljs-string">"end"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">1634625192000</span>,
+                <span class="doc-hljs-string">"title"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-string">"event1"</span>,
+                <span class="doc-hljs-string">"color"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-string">"#69E203"</span>
+              },
+              {
+                <span class="doc-hljs-string">"start"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">1634743992000</span>,
+                <span class="doc-hljs-string">"end"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">1634747592000</span>,
+                <span class="doc-hljs-string">"title"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-string">"event2"</span>,
+                <span class="doc-hljs-string">"color"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-string">"#FA0B01"</span>
+              }
+            ];
+        }
+    </code>
+</pre>
+</br>
+<p>For updating calendar event from array you need to call datasource from <span class="doc-hljs-class-name">
+   AngularMaterialCalendarComponent</span></p>
+
+<pre class="doc-code-container">
+    <code> 
+        <span class="doc-hljs-keyword">import</span> { AngularMaterialCalendarComponent } <span class="doc-hljs-keyword">from</span> <span class="doc-hljs-string">'angular-material-calendar'</span>;
+        <span class="doc-hljs-keyword">export class</span><span class="doc-hljs-class-name"> AppComponent</span> {
+            
+            @<span class="doc-hljs-import-class">ViewChild</span><span class="doc-hljs-fn-paranthesis">(</span>AngularMaterialCalendarComponent<span class="doc-hljs-fn-paranthesis">)</span> calendar<span class="doc-hljs-keyword">?:</span><span class="doc-hljs-class-name">AngularMaterialCalendarComponent</span>&lt;<span class="doc-hljs-keyword">Event</span>&gt;;
+            events<span class="doc-hljs-keyword"> = </span> [
+            {   
+                <span class="doc-hljs-string">"start"</span><span class="doc-hljs-keyword">:</span><span class="doc-hljs-class-name"> 1634621592000</span>,
+                <span class="doc-hljs-string">"end"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">1634625192000</span>,
+                <span class="doc-hljs-string">"title"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-string">"event1"</span>,
+                <span class="doc-hljs-string">"color"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-string">"#69E203"</span>
+              },
+              {
+                <span class="doc-hljs-string">"start"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">1634743992000</span>,
+                <span class="doc-hljs-string">"end"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">1634747592000</span>,
+                <span class="doc-hljs-string">"title"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-string">"event2"</span>,
+                <span class="doc-hljs-string">"color"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-string">"#FA0B01"</span>
+              }
+            ];
+
+            <span class="doc-hljs-import-class">addEvents</span>() {
+                <span class="doc-hljs-keyword">const</span> event = {
+                    <span class="doc-hljs-string">"start"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">1634743992000</span>,
+                    <span class="doc-hljs-string">"end"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">1634747592000</span>,
+                    <span class="doc-hljs-string">"title"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-string">"event2"</span>,
+                    <span class="doc-hljs-string">"color"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-string">"#FA0B01"</span>
+              };
+              <span class="doc-hljs-class-name">this</span>.display.<span class="doc-hljs-import-class">push</span>(event);
+              <span class="doc-hljs-class-name">this</span>.calendar<span class="doc-hljs-keyword">!</span>.dataSource <span class="doc-hljs-keyword">=</span><span class="doc-hljs-import-class"> this</span>.display;
+              }
+        }
+    </code>
+</pre>
+</br>
+<h3>Using Observable As Input Data</h3>
+<p>
+    Observable streams can be used to provide data to Angular Material Calendar. Streams will emit data
+    array to be rendered each time it is updated.
+</p>
+<p>Sample json data</p>
+<pre class="doc-code-container">
+    <code>
+        { 
+            <span class="doc-hljs-string">"data"</span> <span class="doc-hljs-keyword">:</span> [
+              {   
+                <span class="doc-hljs-string">"start"</span><span class="doc-hljs-keyword">:</span><span class="doc-hljs-class-name"> 1634621592000</span>,
+                <span class="doc-hljs-string">"end"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">1634625192000</span>,
+                <span class="doc-hljs-string">"title"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-string">"event1"</span>,
+                <span class="doc-hljs-string">"color"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-string">"#69E203"</span>
+              },
+              {
+                <span class="doc-hljs-string">"start"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">1634743992000</span>,
+                <span class="doc-hljs-string">"end"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">1634747592000</span>,
+                <span class="doc-hljs-string">"title"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-string">"event2"</span>,
+                <span class="doc-hljs-string">"color"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-string">"#FA0B01"</span>
+              }
+            ]
+        }
+    </code>
+</pre>
+</br>
+<p>Add below code in your html file </p>
+<pre class="doc-code-container">
+    <code>
+        <code> 
+            &lt;<span class="doc-hljs-keyword">upbytes-angular-material-calendar</span> <span class="doc-hljs-import-class">[dataSource]</span><span class="doc-hljs-keyword">=</span><span class="doc-hljs-string">'events$'</span>&gt;
+            &lt;/<span class="doc-hljs-keyword">upbytes-angular-material-calendar</span>&gt
+        </code>
+    </code>
+</pre>
+</br>
+
+<p>Create a http service to fetch data from server.</p>
+
+<pre class="doc-code-container">
+    <code> 
+        <span class="doc-hljs-keyword">export class</span><span class="doc-hljs-class-name"> CalendarDataService</span> {
+            <span class="doc-hljs-keyword">constructor</span>(<span class="doc-hljs-keyword">private</span> <span class="doc-hljs-variable-name">_httpClient</span>: <span class="doc-hljs-class-name">HttpClient</span>) {}
+
+            <span class="doc-hljs-import-class">getEventsData</span>(): <span class="doc-hljs-class-name">Observable</span>&lt;<span class="doc-hljs-variable-name">Event</span>[]&gt; {
+                <span class="doc-hljs-keyword">const</span> href = <span class="doc-hljs-string">'assets/data.json'</span>;
+                <span class="doc-hljs-keyword">return</span> <span class="doc-hljs-class-name">this</span>._httpClient.get&lt;<span class="doc-hljs-variable-name">Event</span>[]&gt;(href).<span class="doc-hljs-import-class">pipe</span>(
+                    <span class="doc-hljs-import-class">map</span>((<span class="doc-hljs-variable-name">events</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">any</span>) <span class="doc-hljs-keyword">=></span>  events.data)
+                  );
+            }
+        }
+    </code>
+</pre>
+</br>
+<p>Initialize events$ stream from your component:.</p>
+<pre class="doc-code-container">
+    <code> 
+        <span class="doc-hljs-keyword">export class</span><span class="doc-hljs-class-name"> AppComponent</span> {
+            events$<span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">Observable</span>&lt;<span class="doc-hljs-variable-name">Event</span>[]&gt;;
+
+            <span class="doc-hljs-keyword">constructor</span>(<span class="doc-hljs-keyword">private</span> <span class="doc-hljs-variable-name">calendarDemoDataService</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">CalendarDemoDataService</span>) {
+                <span class="doc-hljs-class-name">this</span>.events$ <span class="doc-hljs-keyword">=</span> <span class="doc-hljs-class-name">this</span>.calendarDemoDataService.<span class="doc-hljs-import-class">getEventsData</span>();
+            }
+        }
+    </code>
+</pre>
+</br>
+<h3>Using Custom <code>DataSource</code> As Input Data</h3>
+<p>You can create custom datasource to provide data to Angular Material Calendar. you need to 
+    extend abstract Datasource class with custom class and implements <code>connect</code> and <code>diconnect</code> methods.
+</p>
+<pre class="doc-code-container">
+    <code> 
+        <span class="doc-hljs-keyword">import</span> { CollectionViewer, DataSource } <span class="doc-hljs-keyword">from</span> <span class="doc-hljs-string">'@angular/cdk/collections'</span>;
+        <span class="doc-hljs-keyword">import</span> { Observable, ReplaySubject } <span class="doc-hljs-keyword">from</span> <span class="doc-hljs-string">'rxjs'</span>;
+        <span class="doc-hljs-keyword">import</span> { Event } <span class="doc-hljs-keyword">from</span> <span class="doc-hljs-string">'../model/calendar-event'</span>;
+
+        <span class="doc-hljs-keyword">export class</span><span class="doc-hljs-class-name"> CalendarDataSource</span>  <span class="doc-hljs-keyword">extends</span><span class="doc-hljs-class-name"> DataSource</span>&lt;<span class="doc-hljs-variable-name">Event</span>&gt; {
+            
+            <span class="doc-hljs-keyword">private</span> _dataStream <span class="doc-hljs-keyword">= new</span><span class="doc-hljs-import-class"> ReplaySubject</span>&lt;<span class="doc-hljs-variable-name">Event</span>[]&gt;();
+            
+            <span class="doc-hljs-keyword">constructor</span>(<span class="doc-hljs-keyword">private</span> <span class="doc-hljs-variable-name">initialData</span>: <span class="doc-hljs-class-name">Event</span>[]) {
+                <span class="doc-hljs-class-name">super</span>();
+                <span class="doc-hljs-class-name">this</span>.<span class="doc-hljs-import-class">setData</span>(initialData);
+            }
+            
+            <span class="doc-hljs-import-class">connect</span>(<span class="doc-hljs-variable-name">collectionViewer</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">CollectionViewer</span>)<span class="doc-hljs-keyword">:</span> Observable&lt;<span class="doc-hljs-keyword">readonly</span> <span class="doc-hljs-variable-name">Event</span>[]&gt; {
+                <span class="doc-hljs-keyword">return</span> <span class="doc-hljs-class-name">this</span>._dataStream;
+            }
+            
+            <span class="doc-hljs-import-class">disconnect</span>(<span class="doc-hljs-variable-name">collectionViewer</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">CollectionViewer</span>): void {
+
+            }
+            
+            <span class="doc-hljs-import-class">setData</span>(<span class="doc-hljs-variable-name">data</span><span class="doc-hljs-keyword">:</span> Event[]) {
+                <span class="doc-hljs-class-name">this</span>._dataStream.next(data);
+            }
+        }
+    </code>
+</pre>
+<br />
+<p>Add below code in your component file to initialize datasource in calendar</p>
+<pre class="doc-code-container">
+    <code> 
+        <span class="doc-hljs-keyword">export class</span><span class="doc-hljs-class-name"> AppComponent</span> {
+            events<span class="doc-hljs-keyword"> = </span> [
+            {   
+                <span class="doc-hljs-string">"start"</span><span class="doc-hljs-keyword">:</span><span class="doc-hljs-class-name"> 1634621592000</span>,
+                <span class="doc-hljs-string">"end"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">1634625192000</span>,
+                <span class="doc-hljs-string">"title"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-string">"event1"</span>,
+                <span class="doc-hljs-string">"color"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-string">"#69E203"</span>
+              },
+              {
+                <span class="doc-hljs-string">"start"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">1634743992000</span>,
+                <span class="doc-hljs-string">"end"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">1634747592000</span>,
+                <span class="doc-hljs-string">"title"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-string">"event2"</span>,
+                <span class="doc-hljs-string">"color"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-string">"#FA0B01"</span>
+              }
+            ];
+
+            dataSource <span class="doc-hljs-keyword">= new</span><span class="doc-hljs-import-class"> CalendarDataSource</span>(<span class="doc-hljs-class-name">this</span>.display);
+
+            <span class="doc-hljs-import-class">addData</span>() {
+                <span class="doc-hljs-class-name">this</span>.display.<span class="doc-hljs-import-class">push</span>(    {
+                    <span class="doc-hljs-string">"start"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">1634743992000</span>,
+                    <span class="doc-hljs-string">"end"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-class-name">1634747592000</span>,
+                    <span class="doc-hljs-string">"title"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-string">"event2"</span>,
+                    <span class="doc-hljs-string">"color"</span><span class="doc-hljs-keyword">:</span> <span class="doc-hljs-string">"#FA0B01"</span>
+                });
+                <span class="doc-hljs-class-name">this</span>.dataSource.<span class="doc-hljs-import-class">setData</span>(this.display)
+              }
+            
+              <span class="doc-hljs-import-class">removeData</span>() {
+                <span class="doc-hljs-class-name">this</span>.display = <span class="doc-hljs-class-name">this</span>.display.<span class="doc-hljs-import-class">slice</span>(0, -1);
+                <span class="doc-hljs-class-name">this</span>.dataSource.<span class="doc-hljs-import-class">setData</span>(<span class="doc-hljs-class-name">this</span>.display);
+              }
+        }
+    </code>
+</pre>
+</br>
+<p>Add below code in your html file </p>
+<pre class="doc-code-container">
+    <code> 
+        &lt;<span class="doc-hljs-keyword">upbytes-angular-material-calendar</span> <span class="doc-hljs-import-class">[dataSource]</span><span class="doc-hljs-keyword">=</span><span class="doc-hljs-string">'dataSource'</span>&gt;
+        &lt;/<span class="doc-hljs-keyword">upbytes-angular-material-calendar</span>&gt
+    </code>
+</pre>
