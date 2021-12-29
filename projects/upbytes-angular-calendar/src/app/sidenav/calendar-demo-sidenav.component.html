@@ -15,12 +15,18 @@
                 Getting Started
             </a>
             <a mat-list-item class="calendar-demo-sidenav-link" routerLink="/guide"
-                [queryParams]="{ title: 'datasource' }" 
-                routerLinkActive="calendar-demo-sidenav-link-active"
+                [queryParams]="{ title: 'datasource' }" routerLinkActive="calendar-demo-sidenav-link-active"
                 [routerLinkActiveOptions]="{ exact: true }">
                 Data Source
             </a>
-
+            <a mat-list-item class="calendar-demo-sidenav-link" routerLink="/guide" [queryParams]="{ title: 'events' }"
+                routerLinkActive="calendar-demo-sidenav-link-active" [routerLinkActiveOptions]="{ exact: true }">
+                Event
+            </a>
+            <a mat-list-item class="calendar-demo-sidenav-link" routerLink="/guide" [queryParams]="{ title: 'theming' }"
+                routerLinkActive="calendar-demo-sidenav-link-active" [routerLinkActiveOptions]="{ exact: true }">
+                Theming
+            </a>
         </mat-nav-list>
 
     </mat-drawer>
@@ -28,5 +34,5 @@
     <button mat-icon-button class="example-icon" (click)="sidenav.toggle()"
         aria-label="Example icon-button with menu icon">
         <mat-icon class="material-icons-round">menu</mat-icon>
-    </button> 
+    </button>
 </mat-drawer-container>

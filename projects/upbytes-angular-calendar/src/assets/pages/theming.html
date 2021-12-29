@@ -1,0 +1,200 @@
+<head>
+    <style>
+        table {
+            width: 100%;
+            text-indent: initial;
+            vertical-align: middle;
+            margin-bottom: 36px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid grey;
+            font-size: 14px;
+            text-align: left;
+            border-collapse: collapse;
+            padding: 8px 16px;
+        }
+    </style>
+</head>
+<h1>Theming & Typography in Angular Material Calendar</h1>
+<p> Angular Material Calendar built on angular material components and follow theming and typography of same. </p>
+<h3>Pre-built Themes</h3>
+<p>Angular Material Calendar includes all four pre-built themes of angular material. </p>
+<p>To use pre-built theme, you need to add any of them in <code>styles</code> array of <code>angular.json</code> file.
+</p>
+
+<table style="border: 1px solid ; width: 100%; text-align: left;">
+    <thead>
+        <tr>
+            <th>Theme</th>
+            <th>Light or dark?</th>
+            <th>Palettes (primary, accent, warn)</th>
+            <th>Path</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>deeppurple-amber.css</code></td>
+            <td>Light</td>
+            <td>deep-purple, amber, red</td>
+            <td>./node_modules/@upbytes.in/angular-material-calendar/theme/prebuilt/deeppurple-amber.theme.css</td>
+        </tr>
+        <tr>
+            <td><code>indigo-pink.css</code></td>
+            <td>Light</td>
+            <td>indigo, pink, red</td>
+            <td>./node_modules/@upbytes.in/angular-material-calendar/theme/prebuilt/indigo-pink.theme.css</td>
+        </tr>
+        <tr>
+            <td><code>pink-bluegrey.css</code></td>
+            <td>Dark</td>
+            <td>pink, bluegrey, red</td>
+            <td>./node_modules/@upbytes.in/angular-material-calendar/theme/prebuilt/pink-bluegrey.theme.css</td>
+        </tr>
+        <tr>
+            <td><code>purple-green.css</code></td>
+            <td>Dark</td>
+            <td>purple, green, red</td>
+            <td>./node_modules/@upbytes.in/angular-material-calendar/theme/prebuilt/purple-green.theme.css</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Custom Theme</h3>
+<p>Angular Material Calendar support custom themes feature as well. You can use any color combination according to your
+    requirement.</p>
+<p>Follow below steps to create custom theme in Angular Material Calendar.</p>
+<h3>Step 1:</h3>
+<p>Import <code>angular-material-calendar.theme</code> in your <code>theme.scss</code> file</p>
+<pre class="doc-code-container">
+    <code>
+        <span class="doc-hljs-keyword">@import</span> <span class="doc-hljs-string">"../../../node_modules/@upbytes.in/angular-material-calendar/theme/angular-material-calendar.theme"</span>;
+    </code>
+</pre>
+<h3>Step 2:</h3>
+<p>Define your application theme</p>
+<pre class="doc-code-container">
+    <code>
+        <span class="doc-hljs-keyword">@import</span> <span class="doc-hljs-string">"../../../node_modules/@upbytes.in/angular-material-calendar/theme/angular-material-calendar.theme"</span>;
+        
+        <span class="doc-hljs-keyword">@include</span> mat.<span class="doc-hljs-fn-name">core</span>();
+        
+        $my-application-dark-primary: mat.<span class="doc-hljs-class-name">define-palette</span>(mat.$pink-palette);
+        $my-application-dark-accent: mat.<span class="doc-hljs-class-name">define-palette</span>(mat.$blue-gray-palette);
+        $my-application-dark-warn: mat.<span class="doc-hljs-class-name">define-palette</span>(mat.$red-palette);
+
+        $my-application-dark-theme<span class="doc-hljs-keyword">:</span> mat.<span class="doc-hljs-class-name">define-dark-theme</span>(
+            (
+                <span class="doc-hljs-fn-name">color</span><span class="doc-hljs-keyword">:</span> (
+                    primary: $angular-material-calendar-demo-dark-primary,
+                    accent: $angular-material-calendar-demo-dark-accent,
+                    warn: $angular-material-calendar-demo-warn
+                )
+            )
+        );
+    </code>
+</pre>
+<h3>Step 3:</h3>
+<p>Apply your theme on angular material all components and Angular Material Calendar.</p>
+<pre class="doc-code-container">
+    <code>
+        <span class="doc-hljs-keyword">@import</span> <span class="doc-hljs-string">"../../../node_modules/@upbytes.in/angular-material-calendar/theme/angular-material-calendar.theme"</span>;
+        
+        <span class="doc-hljs-keyword">@include</span> mat.<span class="doc-hljs-fn-name">core</span>();
+        
+        $my-application-dark-primary: mat.<span class="doc-hljs-class-name">define-palette</span>(mat.$pink-palette);
+        $my-application-dark-accent: mat.<span class="doc-hljs-class-name">define-palette</span>(mat.$blue-gray-palette);
+        $my-application-dark-warn: mat.<span class="doc-hljs-class-name">define-palette</span>(mat.$red-palette);
+
+        $my-application-dark-theme<span class="doc-hljs-keyword">:</span> mat.<span class="doc-hljs-class-name">define-dark-theme</span>(
+            (
+                <span class="doc-hljs-fn-name">color</span><span class="doc-hljs-keyword">:</span> (
+                    primary: $angular-material-calendar-demo-dark-primary,
+                    accent: $angular-material-calendar-demo-dark-accent,
+                    warn: $angular-material-calendar-demo-warn
+                )
+            )
+        );
+
+        <span class="doc-hljs-keyword">@include</span> mat.<span class="doc-hljs-fn-name">all-component-themes</span>($my-application-dark-theme);
+        <span class="doc-hljs-keyword">@include</span> <span class="doc-hljs-fn-name">angular-material-calendar</span>($my-application-dark-theme);
+    </code>
+</pre>
+<p>You can also define light theme of your application by using
+    <code><span class="doc-hljs-class-name">define-light-theme</span></code>.</p>
+<p>You can test multiple themes by using Theme-Picker button on top-right conrner of this page. </p>
+<h2>Typography Config</h2>
+<p>Angular Material Calendar uses same typography as other angular material component in your application.</p>
+<p>You can change or use custom fonts by following below steps.</p>
+<h3>Step 1:</h3>
+<p>Import your font in <code> index.html </code>file.</p> Below example import <code> Robot </code> font.
+<pre class="doc-code-container">
+    <code>
+        &lt;<span class="doc-hljs-keyword">head</span>&gt;
+            &lt;<span class="doc-hljs-keyword">link</span> <span class="doc-hljs-import-class">href</span>=<span class="doc-hljs-string">"https://fonts.googleapis.com/icon?family=Material+Icons"</span> <span class="doc-hljs-import-class">rel</span>=<span class="doc-hljs-string">"stylesheet"</span>&gt;
+            &lt;<span class="doc-hljs-keyword">link</span> <span class="doc-hljs-import-class">rel</span>=<span class="doc-hljs-string">"preconnect"</span> href=<span class="doc-hljs-string">"https://fonts.gstatic.com"</span>&gt;
+            &lt;<span class="doc-hljs-keyword">link</span> <span class="doc-hljs-import-class">href</span>=<span class="doc-hljs-string">"https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"</span> <span class="doc-hljs-import-class">rel</span>=<span class="doc-hljs-string">"stylesheet"</span>&gt;
+        &lt;<span class="doc-hljs-keyword">/head</span>&gt;
+    </code>
+</pre>
+<h3>Define Typepography in your <code> theme.scss </code> file.</h3>
+<pre class="doc-code-container">
+    <code>
+        <span class="doc-hljs-keyword">@import</span> <span class="doc-hljs-string">"../../../node_modules/@upbytes.in/angular-material-calendar/theme/angular-material-calendar.theme"</span>;
+        
+        <span class="doc-hljs-keyword">@include</span> mat.<span class="doc-hljs-fn-name">core</span>();
+        
+        $my-application-typography<span class="doc-hljs-keyword">:</span> mat.<span class="doc-hljs-class-name">define-typography-config</span>(
+            $font-family<span class="doc-hljs-keyword">:</span> 'Roboto'
+        );
+
+        $my-application-dark-primary<span class="doc-hljs-keyword">:</span> mat.<span class="doc-hljs-class-name">define-palette</span>(mat.$pink-palette);
+        $my-application-dark-accent<span class="doc-hljs-keyword">:</span> mat.<span class="doc-hljs-class-name">define-palette</span>(mat.$blue-gray-palette);
+        $my-application-dark-warn<span class="doc-hljs-keyword">:</span> mat.<span class="doc-hljs-class-name">define-palette</span>(mat.$red-palette);
+
+        $my-application-dark-theme<span class="doc-hljs-keyword">:</span> mat.<span class="doc-hljs-class-name">define-dark-theme</span>(
+            (
+                <span class="doc-hljs-fn-name">color</span><span class="doc-hljs-keyword">:</span> (
+                    primary: $angular-material-calendar-demo-dark-primary,
+                    accent: $angular-material-calendar-demo-dark-accent,
+                    warn: $angular-material-calendar-demo-warn
+                )
+            )
+        );
+        <span class="doc-hljs-keyword">@include</span> mat.<span class="doc-hljs-fn-name">all-component-themes</span>($my-application-dark-theme);
+        <span class="doc-hljs-keyword">@include</span> <span class="doc-hljs-fn-name">angular-material-calendar</span>($my-application-dark-theme);
+    </code>
+</pre>
+<h3>Step 3:</h3>
+<p>Add typography in your define theme.</p>
+<pre class="doc-code-container">
+    <code>
+        <span class="doc-hljs-keyword">@import</span> <span class="doc-hljs-string">"../../../node_modules/@upbytes.in/angular-material-calendar/theme/angular-material-calendar.theme"</span>;
+        
+        <span class="doc-hljs-keyword">@include</span> mat.<span class="doc-hljs-fn-name">core</span>();
+        
+        $my-application-font<span class="doc-hljs-keyword">:</span> mat.<span class="doc-hljs-class-name">define-typography-config</span>(
+            $font-family<span class="doc-hljs-keyword">:</span> 'Roboto'
+        );
+
+        $my-application-dark-primary<span class="doc-hljs-keyword">:</span> mat.<span class="doc-hljs-class-name">define-palette</span>(mat.$pink-palette);
+        $my-application-dark-accent<span class="doc-hljs-keyword">:</span> mat.<span class="doc-hljs-class-name">define-palette</span>(mat.$blue-gray-palette);
+        $my-application-dark-warn<span class="doc-hljs-keyword">:</span> mat.<span class="doc-hljs-class-name">define-palette</span>(mat.$red-palette);
+
+        $my-application-dark-theme<span class="doc-hljs-keyword">:</span> mat.<span class="doc-hljs-class-name">define-dark-theme</span>(
+            (
+                <span class="doc-hljs-fn-name">color</span><span class="doc-hljs-keyword">:</span> (
+                    primary: $angular-material-calendar-demo-dark-primary,
+                    accent: $angular-material-calendar-demo-dark-accent,
+                    warn: $angular-material-calendar-demo-warn
+                ),
+                typography<span class="doc-hljs-keyword">:</span> $my-application-font
+            )
+        );
+        
+        <span class="doc-hljs-keyword">@include</span> mat.<span class="doc-hljs-fn-name">all-component-themes</span>($my-application-dark-theme);
+        <span class="doc-hljs-keyword">@include</span> <span class="doc-hljs-fn-name">angular-material-calendar</span>($my-application-dark-theme);
+    </code>
+</pre>

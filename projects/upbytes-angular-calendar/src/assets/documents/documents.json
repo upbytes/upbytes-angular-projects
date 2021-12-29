@@ -10,5 +10,13 @@
     {
         "title": "datasource",
         "documentUrl": "assets/pages/datasource.html"
+    },
+    {
+        "title": "events",
+        "documentUrl": "assets/pages/events.html"
+    },
+    {
+        "title": "theming",
+        "documentUrl": "assets/pages/theming.html"
     }
 ]
