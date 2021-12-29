@@ -20,8 +20,8 @@ import { DocumentViewerService } from '../services/document-viewer.service';
     line-height: 19px;
     overflow: auto;
     padding: 0;
-    margin: 0;
     background: none;
+    margin-bottom: 36px;
   }
   .doc-hljs-keyword {
     color: #e37b40;
