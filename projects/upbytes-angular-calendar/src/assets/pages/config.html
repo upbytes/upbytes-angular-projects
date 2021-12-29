@@ -1,0 +1,21 @@
+<h1>Angular Material Calendar Config</h1>
+<p>Anguar Material Calendar provide few option to config Calendar view and format.</p>
+
+<h3>Description</h3>
+
+<p><b>view: </b> (day | week | month) view property is used when you need to initialize calendar with day view or week view.</p>
+<p><b>format: </b> format property should be used when your string <code> start/ end </code> date are not be parse by Calendar Api.</p>
+
+<p>Angular Material Calendar use DateTime.fromISO() of Luxon api to parse app string date-time data.</p>
+<p>In case, you are facing challanges to parse you input dates then you can use format property.</p>
+
+<pre class="doc-code-container">
+    <code>
+        <span class="doc-hljs-keyword">import</span> { AngularMaterialCalendarModule } <span class="doc-hljs-keyword">from</span> <span class="doc-hljs-string">'@upbytes.in/angular-material-calendar';</span>
+        imports<span class="doc-hljs-keyword">:</span> [
+        <span class="doc-hljs-import-class"> ....MaterialModule</span>,
+        <span class="doc-hljs-import-class">StoreModule.forRoot</span><span class="doc-hljs-fn-paranthesis">(</span>{}<span class="doc-hljs-fn-paranthesis">)</span>
+        <span class="doc-hljs-fn-name">AngularMaterialCalendarModule.forRoot</span>({view: <span class="doc-hljs-string">'month'</span>, format: <span class="doc-hljs-string">'YOUR_FORMAT'</span>})</span>
+        ] 
+    </code>
+</pre>

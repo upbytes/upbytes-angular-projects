@@ -27,6 +27,10 @@
                 routerLinkActive="calendar-demo-sidenav-link-active" [routerLinkActiveOptions]="{ exact: true }">
                 Theming
             </a>
+            <a mat-list-item class="calendar-demo-sidenav-link" routerLink="/guide" [queryParams]="{ title: 'config' }"
+                routerLinkActive="calendar-demo-sidenav-link-active" [routerLinkActiveOptions]="{ exact: true }">
+                Config
+            </a>
         </mat-nav-list>
 
     </mat-drawer>

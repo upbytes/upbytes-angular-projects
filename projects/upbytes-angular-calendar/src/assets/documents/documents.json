@@ -18,5 +18,9 @@
     {
         "title": "theming",
         "documentUrl": "assets/pages/theming.html"
+    },
+    {
+        "title": "config",
+        "documentUrl": "assets/pages/config.html"
     }
 ]
